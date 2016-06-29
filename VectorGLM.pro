@@ -17,8 +17,10 @@ MOC_DIR=moc
 CONFIG-=app_bundle
 # Auto include all .cpp files in the project src directory (can specifiy individually if required)
 SOURCES+= $$PWD/src/main.cpp \
+          $$PWD/src/TestTypes.cpp \
           $$PWD/src/CompareFuncs.cpp \
-          $$PWD/src/PrintFuncs.cpp
+          $$PWD/src/PrintFuncs.cpp \
+          $$PWD/src/TestFunctions.cpp
 
 # same for the .h files
 HEADERS+= $$PWD/include/CompareFuncs.h \
