@@ -56,3 +56,53 @@ bool operator!=(const glm::mat4 &_m1 , const ngl::Mat4 &_m2)
 
 
 
+bool operator==(const ngl::Vec3 &_m1 , const glm::vec3 &_m2)
+{
+  for(int i=0; i<3; ++i)
+  {
+    if(!( FCompare(_m1.m_openGL[i] , glm::value_ptr( _m2 )[i] )))
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool operator==(const glm::vec3 &_m1 , const ngl::Vec3 &_m2)
+{
+  for(int i=0; i<3; ++i)
+  {
+    if(!( FCompare(_m2.m_openGL[i] , glm::value_ptr( _m1 )[i] )))
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool operator!=(const ngl::Vec3 &_m1 , const glm::vec3 &_m2)
+{
+  for(int i=0; i<3; ++i)
+  {
+    if(( FCompare(_m1.m_openGL[i] , glm::value_ptr( _m2 )[i] )))
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool operator!=(const glm::vec3 &_m1 , const ngl::Vec3 &_m2)
+{
+  for(int i=0; i<3; ++i)
+  {
+    if(( FCompare(_m2.m_openGL[i] , glm::value_ptr( _m1 )[i] )))
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+
