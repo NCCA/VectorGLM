@@ -34,6 +34,52 @@ TEST(NGLvsGLMFunctions, perspective)
   EXPECT_TRUE(nprojection == gprojection) << print(nprojection)<<print(gprojection);
 }
 
+
+TEST(NGLvsGLMFunctions, perspectiveFov)
+{
+  ngl::Mat4 nprojection=ngl::perspectiveFov(45.0f,width,height,0.05f,350.0f);
+  // note glm:: expects fov as radians ngl uses degrees
+  glm::mat4 gprojection=glm::perspectiveFov(ngl::radians(45.0f),float(width),float(height),0.05f,350.0f);
+  EXPECT_TRUE(nprojection == gprojection) << print(nprojection)<<print(gprojection);
+}
+
+
+TEST(NGLvsGLMFunctions, infinitePerspective)
+{
+  ngl::Mat4 nprojection=ngl::infinitePerspective(45.0f,float(width/height),0.05f);
+  // note glm:: expects fov as radians ngl uses degrees
+  glm::mat4 gprojection=glm::infinitePerspective(ngl::radians(45.0f),float(width/height),0.05f);
+  EXPECT_TRUE(nprojection == gprojection) << print(nprojection)<<print(gprojection);
+}
+
+
+TEST(NGLvsGLMFunctions, orthoDepth)
+{
+  ngl::Mat4 nprojection=ngl::ortho(0.0f,width,0.0f,height,0.5f,20.0f);
+  // note glm:: expects fov as radians ngl uses degrees
+  glm::mat4 gprojection=glm::ortho(0.0f,float(width),0.0f,float(height),0.5f,20.0f);
+  EXPECT_TRUE(nprojection == gprojection) << print(nprojection)<<print(gprojection);
+}
+
+TEST(NGLvsGLMFunctions, ortho)
+{
+  ngl::Mat4 nprojection=ngl::ortho(0.0f,width,0.0f,height);
+  // note glm:: expects fov as radians ngl uses degrees
+  glm::mat4 gprojection=glm::ortho(0.0f,float(width),0.0f,float(height));
+  EXPECT_TRUE(nprojection == gprojection) << print(nprojection)<<print(gprojection);
+}
+
+TEST(NGLvsGLMFunctions, frustum)
+{
+  ngl::Mat4 nprojection=ngl::frustum(0.0f,width,0.0f,height,0.5f,20.0f);
+  // note glm:: expects fov as radians ngl uses degrees
+  glm::mat4 gprojection=glm::frustum(0.0f,float(width),0.0f,float(height),0.5f,20.0f);
+  EXPECT_TRUE(nprojection == gprojection) << print(nprojection)<<print(gprojection);
+}
+
+
+
+
 TEST(NGLvsGLMFunctions,unProject)
 {
 
