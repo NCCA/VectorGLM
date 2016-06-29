@@ -11,6 +11,49 @@
 constexpr int width=1024;
 constexpr int height=710;
 
+TEST(TestVec2EqualTemplate,NGLvsGLM)
+{
+  ngl::Vec2 a;
+  glm::vec2 b;
+  EXPECT_TRUE(a == b) << "Vec2 == same\n"<<print(a)<<print(b);
+}
+
+TEST(TestVec2NotEqualTemplate,NGLvsGLM)
+{
+  ngl::Vec2 a;
+  glm::vec2 b;
+  EXPECT_FALSE(a != b) << "Vec2 != same\n"<<print(a)<<print(b);
+}
+
+TEST(TestVec3EqualTemplate,NGLvsGLM)
+{
+  ngl::Vec3 a;
+  glm::vec3 b;
+  EXPECT_TRUE(a == b) << "Vec3 == same\n"<<print(a)<<print(b);
+}
+
+TEST(TestVec3NotEqualTemplate,NGLvsGLM)
+{
+  ngl::Vec3 a;
+  glm::vec3 b;
+  EXPECT_FALSE(a != b) << "Vec3 != same\n"<<print(a)<<print(b);
+}
+
+TEST(TestVec4EqualTemplate,NGLvsGLM)
+{
+  ngl::Vec4 a;
+  glm::vec4 b;
+  EXPECT_TRUE(a == b) << "Vec4 == same\n"<<print(a)<<print(b);
+}
+
+TEST(TestVec4NotEqualTemplate,NGLvsGLM)
+{
+  ngl::Vec2 a;
+  glm::vec2 b;
+  EXPECT_FALSE(a != b) << "Vec4 != same\n"<<print(a)<<print(b);
+}
+
+
 TEST(View, NGLvsGLM)
 {
   ngl::Vec3 nfrom(0,0,4);
